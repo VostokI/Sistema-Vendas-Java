@@ -1,0 +1,42 @@
+use bdvendas;
+
+/*Adicionar espaços da url*/
+alter table tb_produtos add column url_img varchar(500);
+
+alter table tb_fornecedores add column url_img varchar(500);
+
+alter table tb_clientes add column url_img varchar(500);
+alter table tb_clientes add column carteira_id int;
+
+alter table tb_vendas add column cashback boolean;
+
+CREATE TABLE tb_carteira (
+  id int auto_increment primary key,
+  cliente_id int not null,
+  saldo double,
+  FOREIGN KEY (cliente_id) REFERENCES tb_clientes(id)
+);
+
+/*Adicionar espaço da Url e aumentar o tamanho da senha*/
+DROP TABLE tb_funcionarios;
+
+CREATE TABLE tb_funcionarios (
+  id int auto_increment primary key,
+  nome varchar(100),
+  rg varchar (30),
+  cpf varchar (20),
+  email varchar(200),
+  senha varchar(75),
+  cargo varchar(100),
+  nivel_acesso varchar(50),
+  telefone varchar(30),
+  celular varchar(30),
+  cep varchar(100),
+  endereco varchar (255),
+  numero int,
+  complemento varchar (200),
+  bairro varchar (100),
+  cidade varchar (100),
+  estado varchar (2),
+  url_img varchar(500)
+);
